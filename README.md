@@ -1,8 +1,11 @@
 # 包含网络
 - 推荐使用: </br>
-*Convolution Neural Network(CNN)*
+*Convolution Neural Network (CNN)*</br>
 *Deep Belief Network (DBN)*  </br>
-
+*particle swarm optimization (PSO)*  </br>
+*Simulated Annealing(SA)*  </br>
+*k-nearest neighbors  (KNN)*  </br>
+*Support Vector Machine (SVM)*  </br>
 # 所依赖包
 ```python
 pip install tensorflow (version: 2.X)
