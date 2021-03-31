@@ -2,9 +2,9 @@
 - 推荐使用: </br>
 *Convolution Neural Network (CNN)*</br>
 *Deep Belief Network (DBN)*  </br>
-*particle swarm optimization (PSO)*  </br>
+*Particle swarm optimization (PSO)*  </br>
 *Simulated Annealing(SA)*  </br>
-*k-nearest neighbors  (KNN)*  </br>
+*K-nearest neighbors  (KNN)*  </br>
 *Support Vector Machine (SVM)*  </br>
 # 所依赖包
 ```python
