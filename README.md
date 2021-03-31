@@ -1,5 +1,6 @@
 # 包含网络
 - 推荐使用: </br>
+*Convolution Neural Network(CNN)*
 *Deep Belief Network (DBN)*  </br>
 
 # 所依赖包
