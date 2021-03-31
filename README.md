@@ -50,4 +50,4 @@ pip install --upgrade --user numpy pandas h5py (升级包)
 
 [Tensorboard](https://blog.csdn.net/sinat_33761963/article/details/62433234) 
 
-[EDBN](https://www.sciencedirect.com/science/article/pii/S0019057819302903?via%3Dihub) 欢迎引用~
+[EDBN](https://www.sciencedirect.com/science/article/pii/S0019057819302903?via%3Dihub)
