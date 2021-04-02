@@ -13,7 +13,7 @@ class SA():
         :param objective: cost function as an objective
         :param initial_temp: double, manually set initial_temp, e.g. 90
         :param final_temp: double, stop_temp, e.g. 0.1
-        :param alpha: double, temperature changing step, [0.985, 0.999]
+        :param alpha: double, temperature changing step, [0.900, 0.999]
         :param var_size: list, upper and lower bounds of each parameter
         :param num_itr: int, iteration times
         """
