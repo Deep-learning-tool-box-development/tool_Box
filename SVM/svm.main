@@ -1,0 +1,14 @@
+from dataset import import_data
+from svm import SVM
+
+
+x_train, x_test, y_train, y_test = import_data(path_to_data, model='SVM')
+
+params = [1.0, 'rbf']
+"""params[0]可取 [1e3,1e2,1e1,1,1e-1,1e-2,1e-3,1e-4,1e-5]
+   C = params[0] 惩罚系数：如果不设置，默认为1
+   params[1]可取 ['rbf','linear','poly','sigmod','precomputed']
+   kernel = params[1] 核函数：默认为 'rbf'"""
+
+SVM = SVM(x_train=x_train, y_train=y_train, x_test=None, y_test=None)
+SVM.get_score(params)
