@@ -60,7 +60,7 @@ class SA():
                     solution = neighbour_of_current
                     cost = cost_neighbour
                 else: 
-                  solution = current_state
+                  solution = solution
                   cost = cost_current
                 # decrement the temperature
             print("cost", cost)
