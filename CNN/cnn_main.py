@@ -20,6 +20,12 @@ def run_cnn_pso(path_to_data, var_size):
 
 
 def run_cnn_sa(path_to_data, varsize):
+    """
+    Main function for the CNN and SA.
+
+    :param path_to_data: string, Folder of the data files
+    :return: None
+    """
     x_train, x_test, y_train, y_test = import_data(path_to_data, model='CNN')
     cnn = CNN(x_train, y_train, x_test, y_test)
     sa = SA(cnn.cnn_get_score, 90, 0.1, 0.92, var_size, net="CNN")
