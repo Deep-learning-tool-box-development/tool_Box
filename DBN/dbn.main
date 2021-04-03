@@ -18,7 +18,7 @@ def run_dbn_pso(path_to_data, var_size):
               outdir=None,
               logdir=None,
               optimization=True)
-    pso = PSO(dbn.dbn_get_score, 5, 10, var_size, net = "DBN")
+    pso = PSO(dbn.dbn_get_score, 5, 10, var_size=params, net = "DBN")
     pso.run()
 
 
@@ -36,7 +36,7 @@ def run_dbn_sa(path_to_data, var_size):
               outdir=None,
               logdir=None,
               optimization=True)
-    sa = SA(dbn.dbn_get_score, 90, 0.1, 0.92, var_size, net="DBN")
+    sa = SA(dbn.dbn_get_score, 90, 0.1, 0.92, var_size=params, net="DBN")
     sa.run()
 
 
