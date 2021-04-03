@@ -31,7 +31,7 @@ def import_data(path, model=None):
     # loading complete
     # how many classes
     classes = np.unique(y_train_all)
-    # x_train, x_vali, y_train, y_vali = train_test_split(x_train_all, y_train_all, test_size=0.9)
+    # x_train_all, x_vali, y_train_all, y_vali = train_test_split(x_train_all, y_train_all, test_size=0.9)
     if model == 'CNN':
         size_train = x_train_all.shape[0]
         size_test = x_test_all.shape[0]
