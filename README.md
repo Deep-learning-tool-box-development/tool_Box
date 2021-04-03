@@ -10,7 +10,7 @@
 ```python
 pip install tensorflow (version: 2.X)
 pip install keras
-
+pip sklearn
 pip install --upgrade --user numpy pandas h5py (升级包)
 ```
 # 用于任务
