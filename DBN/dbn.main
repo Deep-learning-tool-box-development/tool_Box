@@ -12,8 +12,8 @@ def run_dbn_pso(path_to_data, var_size):
     """
     # create the DBN model
     x_train, x_test, y_train, y_test = import_data(path_to_data, model='DBN')
-    dbn = DBN(train_data=x_train, tragets=y_train,
-              output=4,batch_size=4,
+    dbn = DBN(train_data=x_train, targets=y_train,
+              output=4,batch_size=64,
               rbm_layers = [200,50],
               outdir=None,
               logdir=None,
