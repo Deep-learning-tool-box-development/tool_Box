@@ -8,7 +8,7 @@ import math
 
 class SA():
 
-    def __init__(self, objective, initial_temp, final_temp, alpha, var_size):
+    def __init__(self, objective, initial_temp, final_temp, alpha, var_size， net="CNN"):
         """
         :param objective: cost function as an objective
         :param initial_temp: double, manually set initial_temp, e.g. 90
@@ -24,12 +24,11 @@ class SA():
         self.alpha = alpha  # 0.92 衰减因子
         self.var_size = var_size  # [[],[],[]]
         self.dim = np.zeros(len(var_size))
-        self.Global_Best = []
-        self.Best_Cost = []
+        self.net = net
 
     def run(self):
         """
-        :return: current state, current cost, state lists, cost lists
+        :return: cost of all iteration and objective functions' optimized parameters
         """
         """ Optimize object network with the simulated annealing algorithm."""
 
@@ -68,12 +67,7 @@ class SA():
             costs.append(cost)
             current_temp = current_temp*self.alpha
             num_itr += 1
-            print(
-                "Best parameters: ",
-              "\ndropout=", solution[0],
-              "learning rate=", solution[1],
-              "batch size=", int(solution[2]),
-              "number of convolution=", solution[3])
+            print_params(solution, net=self.net)
 
         plt.plot(costs)
     #
