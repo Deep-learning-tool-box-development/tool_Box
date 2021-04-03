@@ -57,19 +57,26 @@ def translate_params(params):
     return dropout, learning_rate, batch_size, conv
 
 
-def print_cnn_params(params):
+def print_params(params, net=None):
     """
     print the cnn params via translating function
 
+    :param net:
     :param params: list of cnn parameters
     :return: None
     """
-    dropout, learning_rate, batch_size, conv = translate_params(params)
-    print('Best parameters: ',
-          '\ndropout=', dropout,
-          'learning rate=', learning_rate,
-          'batch size=', batch_size,
-          'number of convolution=', conv)
+    if net == "CNN":
+        dropout, learning_rate, batch_size, conv = translate_params(params)
+        print('Best parameters: ',
+              '\ndropout=', dropout,
+              'learning rate=', learning_rate,
+              'batch size=', batch_size,
+              'number of convolution=', conv)
+    elif net == "DBN":
+        print('Best parameters: ',
+              '\ndropout=', params[0],
+              'LearningRate_rbm=', params[1],
+              'LearningRate_nn=', params[2])
 
 
 def data_FFT(data):
