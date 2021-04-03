@@ -2,23 +2,16 @@ import numpy as np
 
 
 # Define a struct of particle
-class Particle:
-    def __init__(self, Pos=None, Vel=None, Cost=None, Best_pos=None, Best_cost=None):
-        self.Pos = Pos
-        self.Vel = Vel
-        self.Cost = Cost
-        self.Best_pos = Best_pos
-        self.Best_cost = Best_cost
-
-
 class PSO:
-    def __init__(self, objective, part_num, num_itr, var_size):
+    def __init__(self, objective, part_num, num_itr, var_size, net="CNN"):
         """
         Particle Swarm Optimization
+
         :param objective: cost function as an objective
         :param part_num: integer, number of particles
         :param num_itr: integer, number of iterations
-        :param var_size: list, upper and lower bounds of each parameter
+        :param var_size: list, upper and lower bounds of each parameter,
+                        as in [[x1_min,x1_max], [x2_min,x2_max],..., [xn_min,xn_max]]
         """
         self.part_num = part_num  # Number of the particles
         self.dim = len(var_size)  # Dimension of the particle
@@ -37,10 +30,12 @@ class PSO:
         # Save space for particles
         self.particle = []
         assert self.dim == len(self.var_size)
+        self.net = net
 
     def init_population(self):
         """
         Initialize all the particles and find the temporary best parameter.
+
         :return: None
         """
         print('Initializing...')
@@ -65,6 +60,7 @@ class PSO:
     def iterator(self):
         """
         Run the iterations to find the best parameters.
+
         :return: None
         """
         print('Iterator running...')
@@ -96,20 +92,25 @@ class PSO:
                         self.GlobalBest_Pos = self.particle[j].Best_pos
             self.Best_Cost.append(self.GlobalBest_Cost)
             self.w = self.w * 0.99
-            print('iteration', i + 1, ': Cost=', self.GlobalBest_Cost,
-                  '\ndropout=', self.GlobalBest_Pos[0],
-                  'LearningRate_rbm=', self.GlobalBest_Pos[1],
-                  'LearningRate_nn=', self.GlobalBest_Pos[2])
+            print('iteration', i + 1, ': Cost=', self.GlobalBest_Cost)
+            print_params(self.GlobalBest_Pos, net=self.net)
+
+    def plot_curve(self):
+        """
+        Plot optimizer curve
+
+        :return: None
+        """
+        plt.plot(self.Best_Cost)
 
     def run(self):
         """
         General call for the whole optimization.
+
         :return: None
         """
         print('PSO start running...')
         self.init_population()
         self.iterator()
-        print('Best parameters: ',
-              '\ndropout=', self.GlobalBest_Pos[0],
-              'LearningRate_rbm=', self.GlobalBest_Pos[1],
-              'LearningRate_nn=', self.GlobalBest_Pos[2])
+        self.plot_curve()
+        print_params(self.GlobalBest_Pos, net=self.net)
