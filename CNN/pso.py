@@ -1,11 +1,12 @@
 """Particle Swarm Optimization"""
 import numpy as np
+from matplotlib import pyplot as plt
 from utils import Particle
-from utils import print_cnn_params
+from utils import print_params
 
 
 class PSO:
-    def __init__(self, objective, part_num, num_itr, var_size):
+    def __init__(self, objective, part_num, num_itr, var_size, net="CNN"):
         """
         Particle Swarm Optimization
 
@@ -32,6 +33,7 @@ class PSO:
         # Save space for particles
         self.particle = []
         assert self.dim == len(self.var_size)
+        self.net = net
 
     def init_population(self):
         """
@@ -55,6 +57,7 @@ class PSO:
 
             if self.particle[i].Best_cost < self.GlobalBest_Cost:
                 self.GlobalBest_Cost = self.particle[i].Best_cost
+                self.Best_Cost.append(self.GlobalBest_Cost)
                 self.GlobalBest_Pos = self.particle[i].Best_pos
         print('Initialize complete, with best cost =', self.GlobalBest_Cost)
 
@@ -93,25 +96,29 @@ class PSO:
                         self.GlobalBest_Pos = self.particle[j].Best_pos
             self.Best_Cost.append(self.GlobalBest_Cost)
             self.w = self.w * 0.99
-            print('iteration', i + 1, ': Cost=', self.GlobalBest_Cost,
-                  '\ndropout=', self.GlobalBest_Pos[0],
-                  'learning rate=', self.GlobalBest_Pos[1],
-                  'batch size=', int(self.GlobalBest_Pos[2]))
+            print('iteration', i + 1, ': Cost=', self.GlobalBest_Cost)
+            print_params(self.GlobalBest_Pos, net=self.net)
 
-    def run(self, network='CNN'):
+    def plot_curve(self):
+        """
+        Plot optimizer curve
+
+        :return: None
+        """
+        plt.plot(self.Best_Cost)
+        plt.ylabel("Objective costs")
+        plt.xlabel("iteration number")
+
+    def run(self):
         """
         General call for the whole optimization.
 
-        :param: network: string, name of the network
         :return: None
         """
         print('PSO start running...')
         self.init_population()
         self.iterator()
-        if network == 'CNN':
-            print_cnn_params(self.GlobalBest_Pos)
-        else:
-            print('Best parameters: ',
-                  '\ndropout=', self.GlobalBest_Pos[0],
-                  'LearningRate_rbm=', self.GlobalBest_Pos[1],
-                  'LearningRate_nn=', self.GlobalBest_Pos[2])
+        print("Iteration completed.")
+        self.plot_curve()
+        print_params(self.GlobalBest_Pos, net=self.net)
+
