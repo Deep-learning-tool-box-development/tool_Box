@@ -15,7 +15,12 @@ pip install --upgrade --user numpy pandas h5py (升级包)
 ```
 # Environment
 ```
-
+matplotlib 3.2.2
+numpy 1.19.5
+pandas 1.1.5
+sklearn 0.22.2.post1
+tensorflow 2.4.1
+tensorflow.keras 2.4.0
 ```
 # 用于任务
 `use_for = 'classification'` 用于分类任务 </br>
