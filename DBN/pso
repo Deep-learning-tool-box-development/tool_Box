@@ -3,7 +3,7 @@ import numpy as np
 
 # Define a struct of particle
 class PSO:
-    def __init__(self, objective, part_num, num_itr, var_size, net="CNN"):
+    def __init__(self, objective, part_num, num_itr, var_size, net="DBN"):
         """
         Particle Swarm Optimization
 
