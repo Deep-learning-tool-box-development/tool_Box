@@ -13,6 +13,10 @@ pip install keras
 pip sklearn
 pip install --upgrade --user numpy pandas h5py (升级包)
 ```
+# Environment
+```
+
+```
 # 用于任务
 `use_for = 'classification'` 用于分类任务 </br>
 
