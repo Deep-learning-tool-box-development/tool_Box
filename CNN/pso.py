@@ -6,7 +6,7 @@ from utils import print_params
 
 
 class PSO:
-    def __init__(self, objective, part_num, num_itr, var_size, net="CNN"):
+    def __init__(self, objective, part_num, num_itr, var_size, net=None):
         """
         Particle Swarm Optimization
 
