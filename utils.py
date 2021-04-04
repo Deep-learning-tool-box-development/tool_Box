@@ -57,6 +57,25 @@ def translate_params(params):
     return dropout, learning_rate, batch_size, conv
 
 
+def translate_params_svm(params):
+    """
+    Translate the list of parameters to the corresponding parameter(SVM).
+
+    :param params: list, [C, kernel option]
+    :return: c, kernel function
+    """
+    c_candidate = [1e3, 1e2, 1e1, 1, 1e-1, 1e-2, 1e-3, 1e-4, 1e-5]
+    kernel_candidate = ['rbf', 'linear', 'poly', 'sigmod', 'precomputed']
+    num_c = int(params[0])
+    num_kernel = int(params[1])
+    c = c_candidate[num_c]
+    kernel = kernel_candidate[num_kernel]
+    assert c in c_candidate
+    assert kernel in kernel_candidate
+
+    return c, kernel
+
+
 def print_params(params, net=None):
     """
     print the cnn params via translating function
@@ -77,6 +96,11 @@ def print_params(params, net=None):
               '\ndropout=', params[0],
               'LearningRate_rbm=', params[1],
               'LearningRate_nn=', params[2])
+    elif net == "SVM":
+        C, kernel = translate_params_svm(params)
+        print("Best Parameters: ",
+              "\nC=", C,
+              "Kernel function:", kernel)
 
 
 def data_FFT(data):
