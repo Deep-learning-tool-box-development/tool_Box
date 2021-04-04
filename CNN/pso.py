@@ -20,7 +20,7 @@ class PSO:
         self.dim = len(var_size)  # Dimension of the particle
         self.num_itr = num_itr  # Run how many iterations
         self.objective = objective  # Objective function to be optimize
-        self.w = 0.6  # initial weight
+        self.w = 0.9  # initial weight
         self.c1 = 1.49
         self.c2 = 1.49
         self.var_size = var_size  # Length must correspond to the dimension of particle
@@ -95,7 +95,7 @@ class PSO:
                         self.GlobalBest_Cost = self.particle[j].Best_cost
                         self.GlobalBest_Pos = self.particle[j].Best_pos
             self.Best_Cost.append(self.GlobalBest_Cost)
-            self.w = self.w * 0.99
+            self.w = self.w * 0.9
             print('iteration', i + 1, ': Cost=', self.GlobalBest_Cost)
             print_params(self.GlobalBest_Pos, net=self.net)
 
