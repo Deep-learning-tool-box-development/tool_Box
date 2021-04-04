@@ -1,8 +1,25 @@
 """Particle Swarm Optimization"""
 import numpy as np
 from matplotlib import pyplot as plt
-from utils import Particle
 from utils import print_params
+
+
+class Particle:
+    def __init__(self, Pos=None, Vel=None, Cost=None, Best_pos=None, Best_cost=None):
+        """
+        Structure of a particle.
+
+        :param Pos: list, parameters of this particle
+        :param Vel: list, searching speed of this particle
+        :param Cost: float, current cost of this particle
+        :param Best_pos: list, during whole optimization the best parameters
+        :param Best_cost: float, best cost in the searching history
+        """
+        self.Pos = Pos
+        self.Vel = Vel
+        self.Cost = Cost
+        self.Best_pos = Best_pos
+        self.Best_cost = Best_cost
 
 
 class PSO:
