@@ -65,7 +65,7 @@ def translate_params_svm(params):
     :return: c, kernel function
     """
     c_candidate = [1e3, 1e2, 1e1, 1, 1e-1, 1e-2, 1e-3, 1e-4, 1e-5]
-    kernel_candidate = ['rbf', 'linear', 'poly', 'sigmod', 'precomputed']
+    kernel_candidate = ['rbf', 'linear', 'poly', 'sigmoid']
     num_c = int(params[0])
     num_kernel = int(params[1])
     c = c_candidate[num_c]
