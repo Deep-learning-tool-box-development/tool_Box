@@ -43,7 +43,7 @@ class SVM_Model():
 """举例测试效果
 params[0]可取 [1e3,1e2,1e1,1,1e-1,1e-2,1e-3,1e-4,1e-5]
 C = params[0] 惩罚系数：如果不设置，默认为1
-params[1]可取 ['rbf','linear','poly','sigmod','precomputed']
+params[1]可取 ['rbf','linear','poly','sigmoid']
 kernel = params[1] 核函数：默认为 'rbf'
 放入的数据集应为原始数据，未经归一，降噪，one-hot等转换
 trX.shape = (11821, 576),trY.shape = (11821, 1)
