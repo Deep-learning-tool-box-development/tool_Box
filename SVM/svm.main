@@ -2,13 +2,34 @@ from dataset import import_data
 from svm import SVM
 
 
-x_train, x_test, y_train, y_test = import_data(path_to_data, model='SVM')
+def run_svm_pso(path_to_data, var_size):
+    x_train, x_test, y_train, y_test = import_data(path_to_data, model='SVM')
+    svm = SVM_Model(x_train = x_train, y_train = y_train, x_test = x_test, y_test = y_test, optimization=True)
+    pso = PSO(svm.get_score, 2, 5, var_size, net="SVM")
+    pso.run()
+    
+def run_svm_sa(path_to_data, var_size):
+    pass
+    
 
-params = [1.0, 'rbf']
-"""params[0]可取 [1e3,1e2,1e1,1,1e-1,1e-2,1e-3,1e-4,1e-5]
-   C = params[0] 惩罚系数：如果不设置，默认为1
-   params[1]可取 ['rbf','linear','poly','sigmoid']
-   kernel = params[1] 核函数：默认为 'rbf'"""
+if __name__ == '__main__':
+    """
+    Main function to call the selected model and optimizer
+    """
+    # Main function
+    option = 'Test'
+    path = './Dataset/'
+    # below should get from config
+    c = [0, 8.99]
+    kernel = [0, 3.99]
+    var_size = [c, kernel]
+    if option == 'PSO':
+        run_svm_pso(path, var_size)
 
-SVM = SVM(x_train=x_train, y_train=y_train, x_test=None, y_test=None)
-SVM.get_score(params)
+    elif option == 'SA':
+        run_svm_sa(path, var_size)
+    # Below test only    
+    elif option == 'Test':
+        x_train, x_test, y_train, y_test = import_data(path, model='SVM')
+        svm = SVM_Model(x_train=x_train, y_train=y_train, x_test=x_test, y_test = y_test, optimization=False)
+        svm.train_svm([1, "rbf"])
