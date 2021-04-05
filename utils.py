@@ -64,12 +64,22 @@ def translate_params_svm(params):
     :param params: list, [C, kernel option]
     :return: c, kernel function
     """
-    c_candidate = [1e3, 1e2, 1e1, 1, 1e-1, 1e-2, 1e-3, 1e-4, 1e-5]
-    kernel_candidate = ['rbf', 'linear', 'poly', 'sigmoid']
-    num_c = int(params[0])
-    num_kernel = int(params[1])
-    c = c_candidate[num_c]
-    kernel = kernel_candidate[num_kernel]
+    c_candidate = [1e3, 1e2, 1e1, 1, 1e-1, 1e-2, 1e-3]
+    kernel_candidate = ['rbf', 'poly', 'sigmoid']
+    c_intervall = 1/len(c_candidate)
+    k_intervall = 1/len(kernel_candidate)
+    c = None
+    kernel = None
+    for i in range(len(c_candidate)):
+        if (i*c_intervall) <= params[0] <= ((i+1)*c_intervall):
+            c = c_candidate[i]
+        elif params[0] == 1:
+            c = c_candidate[-1]
+    for j in range(len(kernel_candidate)):
+        if (j*k_intervall) <= params[1] <= ((j+1)*k_intervall):
+            kernel = kernel_candidate[j]
+        elif params[1] == 1:
+            kernel = kernel_candidate[-1]
     assert c in c_candidate
     assert kernel in kernel_candidate
 
