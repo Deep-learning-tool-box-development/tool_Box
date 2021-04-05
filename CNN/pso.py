@@ -26,7 +26,6 @@ class PSO:
     def __init__(self, objective, part_num, num_itr, var_size, net=None):
         """
         Particle Swarm Optimization
-
         :param objective: cost function as an objective
         :param part_num: integer, number of particles
         :param num_itr: integer, number of iterations
@@ -41,7 +40,7 @@ class PSO:
         self.c1 = 1.49
         self.c2 = 1.49
         self.var_size = var_size  # Length must correspond to the dimension of particle
-        self.vmax = 0.5  # Maximum search velocity
+        self.vmax = 1  # Maximum search velocity
         self.vmin = 0.01  # Minimum search velocity
         self.GlobalBest_Cost = 1e5
         self.GlobalBest_Pos = []
@@ -55,7 +54,6 @@ class PSO:
     def init_population(self):
         """
         Initialize all the particles and find the temporary best parameter.
-
         :return: None
         """
         print('Initializing...')
@@ -66,6 +64,7 @@ class PSO:
             for j in range(len(x.Pos)):
                 x.Pos[j] = np.random.uniform(self.var_size[j][0], self.var_size[j][1])
             # calculate cost from random parameters
+            #print(x.Pos)
             x.Cost = self.objective(x.Pos)
             x.Vel = np.zeros(self.dim)
             x.Best_pos = x.Pos
@@ -74,14 +73,13 @@ class PSO:
 
             if self.particle[i].Best_cost < self.GlobalBest_Cost:
                 self.GlobalBest_Cost = self.particle[i].Best_cost
-                self.Best_Cost.append(self.GlobalBest_Cost)
                 self.GlobalBest_Pos = self.particle[i].Best_pos
+        self.Best_Cost.append(self.GlobalBest_Cost)
         print('Initialize complete, with best cost =', self.GlobalBest_Cost)
 
     def iterator(self):
         """
         Run the iterations to find the best parameters.
-
         :return: None
         """
         print('Iterator running...')
@@ -104,6 +102,7 @@ class PSO:
                     assert self.var_size[x][1] >= self.particle[j].Pos[x] >= self.var_size[x][0]
                 # self.particle[j].Pos[2] = int(self.particle[j].Pos[2])
                 # Recalculate cost
+                #print(self.particle[j].Pos)
                 self.particle[j].Cost = self.objective(self.particle[j].Pos)
                 if self.particle[j].Cost < self.particle[j].Best_cost:
                     self.particle[j].Best_cost = self.particle[j].Cost
@@ -119,7 +118,6 @@ class PSO:
     def plot_curve(self):
         """
         Plot optimizer curve
-
         :return: None
         """
         plt.plot(self.Best_Cost)
@@ -129,7 +127,6 @@ class PSO:
     def run(self):
         """
         General call for the whole optimization.
-
         :return: None
         """
         print('PSO start running...')
@@ -138,4 +135,5 @@ class PSO:
         print("Iteration completed.")
         self.plot_curve()
         print_params(self.GlobalBest_Pos, net=self.net)
+
 
