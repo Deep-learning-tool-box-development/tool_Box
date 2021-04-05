@@ -47,10 +47,17 @@ def translate_params(params):
     bs_candidate = [1, 16, 32, 64, 128, 256]
     dropout = params[0]
     learning_rate = params[1]
-    num_batch_size = int(params[2])
-    num_conv = int(params[3])
-    batch_size = bs_candidate[num_batch_size]
-    conv = conv_candidate[num_conv]
+    conv, batch_size = None, None
+    for j in range(len(bs_candidate)):
+        if (j/len(bs_candidate)) <= params[2] <= ((j+1)/len(bs_candidate)):
+            batch_size = bs_candidate[j]
+        elif params[2] == 1:
+            batch_size = bs_candidate[-1]
+    for i in range(len(conv_candidate)):
+        if (i/len(conv_candidate)) <= params[3] <= ((i+1)/len(conv_candidate)):
+            conv = conv_candidate[i]
+        elif params[3] == 1:
+            conv = conv_candidate[-1]
     assert conv in conv_candidate
     assert batch_size in bs_candidate
 
