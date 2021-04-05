@@ -42,10 +42,9 @@ if __name__ == '__main__':
     # below should get from config
     do = [0.5, 0.8]
     lr = [0.0001, 0.01]
-    # 6 candidate of batch size
-    bs = [0, 5.99]
-    # 3 candidate of number of the convolution layers
-    num_conv = [0, 2.99]
+    # All discrete parameters use var_size of [0, 1]
+    bs = [0, 1]
+    num_conv = [0, 1]
     var_size = [do, lr, bs, num_conv]
     if option == 'PSO':
         run_cnn_pso(path, var_size)
