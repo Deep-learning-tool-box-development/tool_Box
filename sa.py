@@ -39,7 +39,7 @@ class SA():
         self.states, self.costs = [state], [cost]
         num_itr = 1
         while self.current_temp > self.final_temp:
-            print("________iteration", num_itr, "...")          
+            print("====iteration====", num_itr, "...")          
             old_state = state
             print("state0", state)
             new_state = self._random_neighbour(old_state)
