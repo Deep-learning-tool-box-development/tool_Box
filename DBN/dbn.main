@@ -8,6 +8,7 @@ def run_dbn_pso(path_to_data, var_size):
     """
     Main function for the DBN and PSO.
     :param path_to_data: string, Folder of the data files
+    :param var_size: list, upper and under boundaries of all variables
     :return: None
     """
     # create the DBN model
@@ -26,6 +27,7 @@ def run_dbn_sa(path_to_data, var_size):
     """
     Main function for the DBN and SA.
     :param path_to_data: string, Folder of the data files
+    :param var_size: list, upper and under boundaries of all variables
     :return: None
     """
     x_train, x_test, y_train, y_test = import_data(path_to_data, model='DBN')
@@ -36,7 +38,7 @@ def run_dbn_sa(path_to_data, var_size):
               outdir=None,
               logdir=None,
               optimization=True)
-    sa = SA(dbn.dbn_get_score, 90, 0.1, 0.92, var_size=params, net="DBN")
+    sa = SA(dbn.dbn_get_score, 200, 10, 0.9, var_size=params, net="DBN")
     sa.run()
 
 
