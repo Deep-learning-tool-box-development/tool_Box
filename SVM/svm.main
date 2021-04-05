@@ -35,8 +35,8 @@ if __name__ == '__main__':
     option = 'Test'
     path = './Dataset/'
     # below should get from config
-    c = [0, 8.99]
-    kernel = [0, 3.99]
+    c = [0, 1]
+    kernel = [0, 1]
     var_size = [c, kernel]
     if option == 'PSO':
         run_svm_pso(path, var_size)
