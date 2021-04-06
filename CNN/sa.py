@@ -56,7 +56,7 @@ class SA():
                 print("==>accept new")
                 # if the new solution is not better, accept it with a probability of e^(-cost/temp)
             elif cost_diff >= 0:
-                if np.random.uniform(0, 1) > math.exp(-cost_diff / current_temp):
+                if np.random.uniform(0, 1) < math.exp(-(cost_diff*1.38064852*10**23) / self.current_temp):
                     state = new_state
                     cost = new_cost
                     states.append(state)
