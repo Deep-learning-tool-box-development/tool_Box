@@ -33,7 +33,7 @@ if __name__ == '__main__':
     """
     # Main function
     option = 'Test'
-    path = './Dataset/'
+    path = './dataset/'
     # below should get from config
     c = [0, 1]
     kernel = [0, 1]
