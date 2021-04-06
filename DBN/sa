@@ -53,7 +53,7 @@ class SA():
                 cost = cost_neighbour
                 # if the new solution is not better, accept it with a probability of e^(-cost/temp)
             else:
-                if np.random.uniform(0, 1) < math.exp(cost_diff / current_temp):
+                if np.random.uniform(0, 1) < math.exp(-(cost_diff*1.38064852*10**23) / self.current_temp):
                     solution = neighbour_of_current
                     cost = cost_neighbour
                 else: 
