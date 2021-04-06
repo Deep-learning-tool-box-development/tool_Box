@@ -19,7 +19,7 @@ def run_cnn_pso(path_to_data, var_size):
     pso.run()
 
 
-def run_cnn_sa(path_to_data, varsize):
+def run_cnn_sa(path_to_data, var_size):
     """
     Main function for the CNN and SA.
     :param var_size: list, upper and under boundaries of all variables
