@@ -49,6 +49,7 @@ class CNN:
 
     def __init__(self, x_train, y_train,
                  x_test, y_test,
+                 discrete_candidate=None,
                  outdir=None,
                  logdir=None,
                  optimization=True,
@@ -82,6 +83,7 @@ class CNN:
 
             self.outdir = outdir
             self.logdir = logdir
+        self.discrete = discrete_candidate
 
     def train(self, params, plot=False):
         """
@@ -93,7 +95,7 @@ class CNN:
         """
         # call the building function
         if self.optimization:
-            dropout, learning_rate, batch_size, conv = translate_params(params)
+            dropout, learning_rate, batch_size, conv = translate_params(params, self.discrete)
         else:
             dropout = params[0]
             learning_rate = params[1]
@@ -106,7 +108,7 @@ class CNN:
         Early_stopping = keras.callbacks.EarlyStopping(monitor='val_loss',
                                                        patience=3,
                                                        mode='min')
-        verbose = 1
+        verbose = 0
         if self.optimization is False:
             verbose = 1
             checkpointer = keras.callbacks.ModelCheckpoint(filepath=self.outdir + "cnn_weights.hdf5",
@@ -153,15 +155,18 @@ class CNN:
         """
         self.model.save(self.outdir + "cnn_model")
 
-    def report(self):
+    def report(self, data, labels):
         """
-        Generating network report using test data
+        Generating network report
 
+        :param data: training data
+        :param labels: training label
         :return: None
         """
-        print(classification_report(np.argmax(self.y_test, axis=1),
-                                    np.argmax(self.model.predict(self.x_test), axis=1),
+        print(classification_report(np.argmax(labels, axis=1),
+                                    np.argmax(self.model.predict(data), axis=1),
                                     digits=4))
+
 
 """
 Demo-code for CNN testing:
@@ -180,3 +185,4 @@ Suggestion:
     [dropout, learning_rate, batch size, number of conv(4, 6, 8)]
 2. try bigger batch_size
 """
+
