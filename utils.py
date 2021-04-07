@@ -36,15 +36,16 @@ def to_cat(data, num_classes=None):
     return data_class
 
 
-def translate_params(params):
+def translate_params(params, candidate):
     """
     Translate the list of parameters to the corresponding parameter(CNN).
 
+    :param candidate:
     :param params: list, [dropout, learning_rate, batch_size, number of convolution]
     :return: value of dropout(float), learning_rate(float) and batch_size(int)
     """
-    conv_candidate = [4, 6, 8]
-    bs_candidate = [1, 16, 32, 64, 128, 256]
+    conv_candidate = candidate[1]
+    bs_candidate = candidate[0]
     dropout = params[0]
     learning_rate = params[1]
     conv, batch_size = None, None
@@ -93,16 +94,17 @@ def translate_params_svm(params):
     return c, kernel
 
 
-def print_params(params, net=None):
+def print_params(params, candidate, net=None):
     """
     print the cnn params via translating function
 
+    :param candidate:
     :param net:
     :param params: list of cnn parameters
     :return: None
     """
     if net == "CNN":
-        dropout, learning_rate, batch_size, conv = translate_params(params)
+        dropout, learning_rate, batch_size, conv = translate_params(params, candidate)
         print('Best parameters: ',
               '\ndropout=', dropout,
               'learning rate=', learning_rate,
