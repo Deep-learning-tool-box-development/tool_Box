@@ -88,8 +88,8 @@ class SA():
     def _random_start(self):
         """ Random point in the interval """
         print("___START____")
-        rd_state = np.zeros(len(var_size))
-        for i in range(len(np.zeros(len(var_size)))):
+        rd_state = np.zeros(len(self.var_size))
+        for i in range(len(np.zeros(len(self.var_size)))):
             #print("rd_point", rd_state)
             rd_point = np.random.uniform(self.var_size[i][0], self.var_size[i][1])
             rd_state[i] = rd_point
@@ -100,8 +100,8 @@ class SA():
         """Find neighbour of current state"""
         print("___NEIGHBOUR____")
 
-        neighbour = np.zeros(len(var_size))
-        for j in range(len(np.zeros(len(var_size)))):
+        neighbour = np.zeros(len(self.var_size))
+        for j in range(len(np.zeros(len(self.var_size)))):
             amplitude = (self.var_size[j][1] - self.var_size[j][0]) * 1 / 10
             delta = (-amplitude / 2.) + amplitude * np.random.random_sample()
             middle_point = state_old[j]
