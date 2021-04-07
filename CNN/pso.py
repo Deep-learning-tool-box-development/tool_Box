@@ -23,7 +23,7 @@ class Particle:
 
 
 class PSO:
-    def __init__(self, objective, part_num, num_itr, var_size, net=None):
+    def __init__(self, objective, part_num, num_itr, var_size, candidate=None, net=None):
         """
         Particle Swarm Optimization
         :param objective: cost function as an objective
@@ -50,6 +50,7 @@ class PSO:
         self.particle = []
         assert self.dim == len(self.var_size)
         self.net = net
+        self.candidate = candidate
 
     def init_population(self):
         """
@@ -113,7 +114,7 @@ class PSO:
             self.Best_Cost.append(self.GlobalBest_Cost)
             self.w = self.w * 0.9
             print('iteration', i + 1, ': Cost=', self.GlobalBest_Cost)
-            print_params(self.GlobalBest_Pos, net=self.net)
+            print_params(self.GlobalBest_Pos, self.candidate, net=self.net)
 
     def plot_curve(self):
         """
@@ -134,6 +135,6 @@ class PSO:
         self.iterator()
         print("Iteration completed.")
         self.plot_curve()
-        print_params(self.GlobalBest_Pos, net=self.net)
+        print_params(self.GlobalBest_Pos, self.candidate, net=self.net)
 
 
