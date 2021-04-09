@@ -123,6 +123,7 @@ class PSO:
                     print("Not better than previous personal best, dropping...")
             self.Best_Cost.append(self.GlobalBest_Cost)
             self.w = self.w * 0.9
+            print()
             print('iteration', i + 1, ': Cost=', self.GlobalBest_Cost)
             print_params(self.GlobalBest_Pos, self.candidate, net=self.net)
 
