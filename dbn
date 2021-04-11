@@ -161,29 +161,13 @@ class DBN():
         self.val_acc = self.history.history['val_accuracy']
         Error = 1 - self.val_acc[-1]
 
-        def plot_learning_curves(history):
-            pd.DataFrame(history.history).plot(figsize=(8, 5))
-            plt.grid(True)
-            plt.gca().set_ylim(0, 2)
-            plt.show()
-
         if self.optimization is False:
             plot_learning_curves(self.history)
             print("val_Error is %f:" %Error)
 
         self.model = model
         #self.Error = Error
-
-
-    def report(self, data, labels):
-        """
-        生成报告
-        """
-        print(
-            classification_report(np.argmax(labels, axis=1),
-                                  np.argmax(self.model.predict(data), axis=1),
-                                  digits=4))
-
+    
     def save_model(self):
         model = self.model
         model.save(self.outdir + "dbn_model")
