@@ -56,3 +56,17 @@ if __name__ == '__main__':
 
     elif option == 'SA':
         run_dbn_sa(path, var_size)
+        
+    elif option == 'Test':
+        params=[0.5,0.0005,0.0005]
+        dbn = DBN(train_data=x_train, targets=y_train,
+              batch_size=64,
+              rbm_layers = [200,50],
+              outdir=None,
+              logdir=None,
+              optimization=False)
+        dbn.pretrain(params, verbose = 0)
+        dbn.finetune(params, verbose = 0)
+        print("Training Report")
+        dbn.report(trainx,trainy)
+        dbn.model.evaluate(testx, testy)
