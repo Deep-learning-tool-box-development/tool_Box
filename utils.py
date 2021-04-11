@@ -35,6 +35,15 @@ def to_cat(data, num_classes=None):
         data_class[i, num] = 1
     return data_class
 
+def report(self, data, labels):
+        """
+        """
+        print(
+            classification_report(np.argmax(labels, axis=1),
+                                  np.argmax(self.model.predict(data), axis=1),
+                                  digits=4))
+
+
 
 def translate_params(params, candidate):
     """
