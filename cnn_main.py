@@ -8,8 +8,9 @@ from sa import SA
 def run_cnn_pso(path_to_data, var_size, discrete_candidate):
     """
     Main function for the CNN and PSO.
-
     :param path_to_data: string, Folder of the data files
+    :param var_size: list, upper and under boundaries of all variables
+    :param discrete_candidate: list, list of discrete params, convolution layer and batch size
     :return: None
     """
     # create the CNN model
@@ -25,8 +26,9 @@ def run_cnn_pso(path_to_data, var_size, discrete_candidate):
 def run_cnn_sa(path_to_data, var_size, discrete_candidate):
     """
     Main function for the CNN and SA.
-    :param var_size: list, upper and under boundaries of all variables
     :param path_to_data: string, Folder of the data files
+    :param var_size: list, upper and under boundaries of all variables
+    :param discrete_candidate: list, list of discrete params, convolution layer and batch size
     :return: None
     """
     x_train, x_test, y_train, y_test = import_data(path_to_data, model='CNN')
@@ -46,14 +48,14 @@ if __name__ == '__main__':
     option = 'SA'
     path = './Dataset/'
     # below should get from config
-    do = [0.3, 0.8]
-    lr = [0.0001, 0.02]
+    do = [0.3, 0.8]  # dropping out
+    lr = [0.0001, 0.02]  # learning rate
     # 6 candidate of batch size
-    conv_candidate = [4, 6, 8]
-    bs_candidate = [1, 16, 32, 64, 128, 256]
+    conv_candidate = [4, 6, 8]  # convolution
+    bs_candidate = [1, 16, 32, 64, 128, 256]  # batch size
     discrete_candi = [bs_candidate, conv_candidate]
     # 3 candidate of number of the convolution layers
-    var_size = [do, lr, [0, 1], [0, 1]]
+    var_size = [do, lr, [0, 1], [0, 1]]  # lower and upper bounds of all params
     if option == 'PSO':
         run_cnn_pso(path, var_size, discrete_candi)
 

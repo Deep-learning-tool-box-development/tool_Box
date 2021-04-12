@@ -3,7 +3,6 @@ from dataset import import_data
 from pso import PSO
 from sa import SA
 from svm import SVM_Model
-import math
 
 
 def run_svm_pso(path_to_data, var_size):

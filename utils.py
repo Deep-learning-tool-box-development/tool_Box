@@ -3,6 +3,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 import numpy.fft as nf
 from scipy.signal import find_peaks
+from sklearn.metrics import classification_report
 
 
 def plot_learning_curve(history):
@@ -35,14 +36,17 @@ def to_cat(data, num_classes=None):
         data_class[i, num] = 1
     return data_class
 
+
 def report(self, data, labels):
         """
+        print out test report
+        :param data: test data
+        :param labels: test label
         """
         print(
             classification_report(np.argmax(labels, axis=1),
                                   np.argmax(self.model.predict(data), axis=1),
                                   digits=4))
-
 
 
 def translate_params(params, candidate):
@@ -103,6 +107,11 @@ def print_params(params, candidate, net=None):
 
 
 def data_FFT(data):
+    """
+    use fourier transformation to change dataset from time domain into frequency domain
+    :param data: input original data
+    :return: transformed data
+    """
     data_fft = []
     for i in range(len(data)):
         rank_i = data[i]
@@ -128,6 +137,7 @@ def data_FFT(data):
         # plt.tick_params(labelsize=10)
         # plt.grid(linestyle=':')
         # plt.show()
+
         ## find peaks in frequency domain
         peak_id, peak_property = find_peaks(ys, height=6, distance=10)
         peak_freq = xs[peak_id]

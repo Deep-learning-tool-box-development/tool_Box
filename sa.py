@@ -93,7 +93,7 @@ class SA:
         plt.show()
 
     def _random_start(self):
-        """ Random point in the interval """
+        """ Random start point in the given interval """
         print("___START____")
         rd_state = np.zeros(len(self.var_size))
         for i in range(len(np.zeros(len(self.var_size)))):

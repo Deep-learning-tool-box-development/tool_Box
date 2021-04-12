@@ -1,13 +1,11 @@
 import numpy as np
 import scipy.io as scio
-from sklearn.model_selection import train_test_split
 from utils import to_cat
 
 
 def import_data(path, model=None):
     """
     Import data from given path.
-
     :param path: string, Folder of the data files
     :param model: which model do we use
     :return: ndarray, training and test data

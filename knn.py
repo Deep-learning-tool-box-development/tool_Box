@@ -1,14 +1,7 @@
-# import numpy as np
-# import os
-# from scipy.io import loadmat
-# from google.colab import drive
-# from tensorflow import keras
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import cross_val_score
 import matplotlib.pyplot as plt
 from dataset import import_data
-from sklearn.model_selection import train_test_split
 from utils import data_FFT
 
 
@@ -32,6 +25,12 @@ def run_knn(path_to_data):
 class KNN():
 
     def __init__(self, x_train, y_train, x_test, y_test):
+        """
+        :param x_train: training data
+        :param y_train: training label
+        :param x_test: test data
+        :param y_test: test label
+        """
         # print('Selected Network : KNN')
         self.x_train = x_train
         self.y_train = y_train.ravel()

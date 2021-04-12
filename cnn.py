@@ -55,7 +55,6 @@ class CNN:
                  optimization=True,
                  epoch=5):
         """
-
         :param x_train: training data
         :param y_train: training label
         :param x_test: test data
@@ -142,7 +141,7 @@ class CNN:
         """
         history = self.train(params)
         val_acc = history.history['val_accuracy']
-        score = (val_acc[-3] + val_acc[-2] + val_acc[-1]) / 3
+        score = (val_acc[-3] + val_acc[-2] + val_acc[-1]) / 3  # choose average of last three accuracy
         return 1 - score
 
     def test(self):

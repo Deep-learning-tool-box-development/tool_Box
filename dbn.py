@@ -1,11 +1,6 @@
 import os
-import numpy as np
-import pandas as pd
 import shutil    # 更新缓存地址
 import pickle    # 保存模型
-import matplotlib.pyplot as plt
-%matplotlib inline
-from sklearn.metrics import classification_report
 from sklearn.neural_network import BernoulliRBM
 from tensorflow import keras
 from tensorflow.keras import Sequential
@@ -172,7 +167,6 @@ class DBN:
     def save_model(self):
         model = self.model
         model.save(self.outdir + "dbn_model")
-
 
     def load_rbm(self):
         try:
