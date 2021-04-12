@@ -44,6 +44,7 @@ class DBN:
         self.history = None
         self.Error = None
         self.optimization = optimization
+        self.val_acc = []
 
         if self.optimization is False:
             if os.path.exists(outdir):

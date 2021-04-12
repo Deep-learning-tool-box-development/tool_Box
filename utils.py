@@ -100,7 +100,6 @@ def print_params(params, candidate, net=None):
               'LearningRate_rbm=', params[1],
               'LearningRate_nn=', params[2])
     elif net == "SVM":
-        C, kernel = translate_params_svm(params)
         print("Best Parameters: ",
               "\nC=", C[1]*params[0],
               "gamma:", gamma[1]*params[0])
