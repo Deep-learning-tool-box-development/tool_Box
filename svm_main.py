@@ -47,9 +47,3 @@ if __name__ == '__main__':
 
     elif option == 'SA':
         run_svm_sa(path, var_size)
-    # Below test only    
-    elif option == 'Test':
-        x_train, x_test, y_train, y_test = import_data(path, model='SVM')
-        svm = SVM_Model(x_train=x_train, y_train=y_train, x_test=x_test, y_test = y_test, optimization=False)
-        params = [50, 0.026]
-        svm.train_svm(params)
