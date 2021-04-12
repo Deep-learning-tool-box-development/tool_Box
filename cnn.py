@@ -11,7 +11,7 @@ from utils import translate_params
 
 def build_network(dropout=0.5, learning_rate=0.004, num_conv=6):
     """
-    Build the CNN network.
+    Build the CNN network. Changing of blabla
 
     :param num_conv:
     :param learning_rate:
