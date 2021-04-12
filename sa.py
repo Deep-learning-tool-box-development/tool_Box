@@ -13,14 +13,15 @@ class SA:
     def __init__(self, objective, initial_temp, final_temp, alpha, var_size, candidate=None, net="DBN"):
         """
         :param objective: cost function as an objective
-        :param initial_temp: double, manually set initial_temp, e.g. 90
+        :param initial_temp: double, manually set initial_temp, e.g. 200
         :param final_temp: double, stop_temp, e.g. 0.1
         :param alpha: double, temperature changing step, [0.900, 0.999]
         :param var_size: list, upper and lower bounds of each parameter
+        :param net: choose between "DBN", "CNN", "SVM"
         """
         self.interval = (0, 1)  # set a range (0,1)
         self.objective = objective  # Objective network to be optimize
-        self.initial_temp = initial_temp  # 90
+        self.initial_temp = initial_temp  # 200
         self.final_temp = final_temp  # .1
         self.alpha = alpha  # 0.92 衰减因子
         self.var_size = var_size  # [[],[],[]]
@@ -34,7 +35,7 @@ class SA:
 
     def run(self):
         """
-        :return: cost of all iteration and objective functions' optimized parameters
+        :outcome: cost of all iteration and objective functions' optimized parameters
         """
         """ Optimize object network with the simulated annealing algorithm."""
 
@@ -80,6 +81,7 @@ class SA:
             print_params(state, self.candidate, net=self.net)
             print(len(self.temp), len(self.costs))
         self.plot_curve()
+
     def plot_curve(self):
         """
         Plot optimizer curve with iteration
@@ -95,7 +97,6 @@ class SA:
         print("___START____")
         rd_state = np.zeros(len(self.var_size))
         for i in range(len(np.zeros(len(self.var_size)))):
-            #print("rd_point", rd_state)
             rd_point = np.random.uniform(self.var_size[i][0], self.var_size[i][1])
             rd_state[i] = rd_point
         print("init_random_state", rd_state)

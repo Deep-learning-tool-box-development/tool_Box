@@ -37,6 +37,7 @@ class KNN():
         self.y_train = y_train.ravel()
         self.x_test = x_test
         self.y_test = y_test.ravel()
+        self.result = 0  # initialisation
 
     # def save_model(self):
     #     from sklearn.externals import joblib
