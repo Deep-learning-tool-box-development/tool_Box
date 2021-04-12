@@ -75,7 +75,7 @@ class KNN():
                 k_error.append(Error)
             # plot Error_list on variable k value
             self.result_error = min(k_error)
-            self.result_k = k_error.index(self.result_error)
+            self.result_k = k_error.index(self.result_error)+1
             print("best result", "k=", self.result_k, "lowest error=", self.result_error)
             plt.plot(k_range, k_error)
             plt.title("Error under different choice of K")
