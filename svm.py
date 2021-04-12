@@ -24,7 +24,7 @@ class SVM_Model():
 
         assert self.optimization is True
 
-        self.model = SVC(C = self.C[1], gamma=params[1])
+        self.model = SVC(C = params[0], gamma=params[1])
         self.model.fit(self.x_train, self.y_train)  # 训练模型
         # result = self.model.predict(self.x_test) # 对测试集进行分类预测
         Error = 1 - self.model.score(self.x_test, self.y_test)  # 计算测试分类正确率
