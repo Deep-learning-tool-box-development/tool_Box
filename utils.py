@@ -101,8 +101,8 @@ def print_params(params, candidate, net=None):
               'LearningRate_nn=', params[2])
     elif net == "SVM":
         print("Best Parameters: ",
-              "\nC=", C[1] * params[0],
-              "gamma:", gamma[1] * params[0])
+              "\nC=",  params[0],
+              "gamma:",  params[1])
 
 
 def data_FFT(data):
