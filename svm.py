@@ -5,7 +5,7 @@ class SVM_Model():
     def __init__(self,x_train,y_train,x_test,y_test, optimization=False):
 
         self.x_train = x_train
-        #self.y_train = y_train
+
         self.y_train = y_train.ravel()   # 将label转为一维数组,shape: (11821, 1)-->(11821,)
 
         if x_test is None:
@@ -20,7 +20,7 @@ class SVM_Model():
     def get_score(self, params):
         
         assert self.optimization is True
-        c, gamma = translate_params_svm(params)
+
         self.model = SVC(C = C[1]*params[0],kernel = 'rbf',gamma=params[1]*gamma[1])
         self.model.fit(self.x_train, self.y_train) # 训练模型
         #result = self.model.predict(self.x_test) # 对测试集进行分类预测
