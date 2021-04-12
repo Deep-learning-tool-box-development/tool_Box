@@ -38,15 +38,15 @@ def to_cat(data, num_classes=None):
 
 
 def report(self, data, labels):
-        """
+    """
         print out test report
         :param data: test data
         :param labels: test label
         """
-        print(
-            classification_report(np.argmax(labels, axis=1),
-                                  np.argmax(self.model.predict(data), axis=1),
-                                  digits=4))
+    print(
+        classification_report(np.argmax(labels, axis=1),
+                              np.argmax(self.model.predict(data), axis=1),
+                              digits=4))
 
 
 def translate_params(params, candidate):
@@ -63,12 +63,12 @@ def translate_params(params, candidate):
     learning_rate = params[1]
     conv, batch_size = None, None
     for j in range(len(bs_candidate)):
-        if (j/len(bs_candidate)) <= params[2] <= ((j+1)/len(bs_candidate)):
+        if (j / len(bs_candidate)) <= params[2] <= ((j + 1) / len(bs_candidate)):
             batch_size = bs_candidate[j]
         elif params[2] == 1:
             batch_size = bs_candidate[-1]
     for i in range(len(conv_candidate)):
-        if (i/len(conv_candidate)) <= params[3] <= ((i+1)/len(conv_candidate)):
+        if (i / len(conv_candidate)) <= params[3] <= ((i + 1) / len(conv_candidate)):
             conv = conv_candidate[i]
         elif params[3] == 1:
             conv = conv_candidate[-1]
@@ -101,8 +101,8 @@ def print_params(params, candidate, net=None):
               'LearningRate_nn=', params[2])
     elif net == "SVM":
         print("Best Parameters: ",
-              "\nC=", C[1]*params[0],
-              "gamma:", gamma[1]*params[0])
+              "\nC=", C[1] * params[0],
+              "gamma:", gamma[1] * params[0])
 
 
 def data_FFT(data):
@@ -157,6 +157,3 @@ def data_FFT(data):
     data_fft = np.asarray(data_fft).reshape(len(data), 4)  # generate new x_train from frequency domain
     # print(data_fft)
     return data_fft
-
-
-
