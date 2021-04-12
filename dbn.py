@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 import shutil    # 更新缓存地址
@@ -6,15 +7,15 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 from sklearn.metrics import classification_report
 from sklearn.neural_network import BernoulliRBM
-
 from tensorflow import keras
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense,BatchNormalization
 from tensorflow.keras import regularizers
-
 from tensorflow.keras.callbacks import ModelCheckpoint,TensorBoard,EarlyStopping
 
-class DBN():
+from utils import plot_learning_curve
+
+class DBN:
     def __init__(self,
                  train_data,
                  targets,
@@ -162,7 +163,7 @@ class DBN():
         Error = 1 - self.val_acc[-1]
 
         if self.optimization is False:
-            plot_learning_curves(self.history)
+            plot_learning_curve(self.history)
             print("val_Error is %f:" %Error)
 
         self.model = model
