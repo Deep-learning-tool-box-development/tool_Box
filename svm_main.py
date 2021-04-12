@@ -43,7 +43,7 @@ if __name__ == '__main__':
     path = './dataset/'
     # below should get from config
 
-    var_size=[[15, 100], [0.001, 0.01]]
+    var_size=[[15, 100], [0.001, 0.01]] # var_size = [C,gamma]
 
     if option == 'PSO':
         run_svm_pso(path, var_size)

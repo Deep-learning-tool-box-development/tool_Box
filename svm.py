@@ -5,10 +5,7 @@ from sklearn.model_selection import train_test_split
 class SVM_Model():
     def __init__(self, x_train, y_train, x_test, y_test, optimization=True):
 
-        self.gamma = gamma
-        self.C = C
         self.x_train = x_train
-
         self.y_train = y_train.ravel()  # 将label转为一维数组,shape: (11821, 1)-->(11821,)
 
         if x_test is None:
