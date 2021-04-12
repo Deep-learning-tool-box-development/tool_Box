@@ -16,7 +16,7 @@ def run_svm_pso(path_to_data, var_size):
     svm = SVM_Model(x_train = x_train, y_train = y_train,
                     x_test = x_test, y_test = y_test,
                     C = C, gamma = gamma, optimization=True)
-    pso = PSO(svm.get_score, 2, 5, var_size, net="SVM")
+    pso = PSO(svm.get_score, 3, 5, var_size, net="SVM")
     pso.run()
     
 def run_svm_sa(path_to_data, var_size):
@@ -39,8 +39,8 @@ if __name__ == '__main__':
     Main function to call the selected model and optimizer
     """
     # Main function
-    option = 'Test' # switch between "Test", "SA", "PSO"
-    path = './dataset/'
+    option = 'PSO' # switch between "Test", "SA", "PSO"
+    path = './Dataset/'
     # below should get from config
     C = [5, 100]
     gamma = [0, 1]
