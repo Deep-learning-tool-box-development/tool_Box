@@ -39,7 +39,7 @@ if __name__ == '__main__':
     Main function to call the selected model and optimizer
     """
     # Main function
-    option = 'Test' # switch between "Test", "SA", "PSO"
+    option = "SA" # switch between "SA", "PSO"
     path = './dataset/'
     # below should get from config
     C = [5, 100]
