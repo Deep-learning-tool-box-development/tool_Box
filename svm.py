@@ -31,7 +31,7 @@ class SVM_Model():
     def train_svm(self, params):
         
         assert self.optimization is False
-        self.model = SVC(C=params[0],kernel = ‘rbf’,gamma=params[1])
+        self.model = SVC(C=params[0], kernel = ‘rbf’, gamma=params[1])
         self.model.fit(self.x_train, self.y_train) # 训练模型
         #result = self.model.predict(self.x_test) # 对测试集进行分类预测
         acc = self.model.score(self.x_test, self.y_test)

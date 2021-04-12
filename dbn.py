@@ -1,16 +1,17 @@
 import os
-import shutil    # 更新缓存地址
-import pickle    # 保存模型
+import shutil  # 更新缓存地址
+import pickle  # 保存模型
 from sklearn.neural_network import BernoulliRBM
 from tensorflow import keras
 from tensorflow.keras import Sequential
-from tensorflow.keras.layers import Dense,BatchNormalization
+from tensorflow.keras.layers import Dense, BatchNormalization
 from tensorflow.keras import regularizers
-from tensorflow.keras.callbacks import ModelCheckpoint,TensorBoard,EarlyStopping
+from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard, EarlyStopping
 from utils import plot_learning_curve
 
 
 class DBN:
+
     def __init__(self,
                  train_data,
                  targets,
@@ -128,13 +129,13 @@ class DBN:
                 [self.rbm_weights[i].transpose(), self.rbm_biases[i]])
 
         Early_stopping = EarlyStopping(monitor='val_loss',
-                                      patience=5,
-                                      mode='min')
+                                       patience=5,
+                                       mode='min')
 
         if self.optimization is False:
             checkpointer = ModelCheckpoint(
                 filepath=self.outdir +
-                "dbn_weights.hdf5",  # 给定checkpoint保存的文件名
+                         "dbn_weights.hdf5",  # 给定checkpoint保存的文件名
                 monitor='val_accuracy',
                 mode='max',
                 verbose=verbose,
@@ -159,11 +160,10 @@ class DBN:
 
         if self.optimization is False:
             plot_learning_curve(self.history)
-            print("val_Error is %f:" %Error)
+            print("val_Error is %f:" % Error)
 
         self.model = model
-        #self.Error = Error
-    
+
     def save_model(self):
         model = self.model
         model.save(self.outdir + "dbn_model")
