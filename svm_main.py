@@ -42,9 +42,8 @@ if __name__ == '__main__':
     option = "SA" # switch between "SA", "PSO"
     path = './dataset/'
     # below should get from config
-    C = [5, 100]
-    gamma = [0, 1]
-    var_size=np.append([np.array(C)/C[1]], [np.array(gamma)/gamma[1]], axis=0)
+
+    var_size=[[15, 100], [0.001, 0.01]]
 
     if option == 'PSO':
         run_svm_pso(path, var_size)
