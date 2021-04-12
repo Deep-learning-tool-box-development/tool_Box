@@ -76,7 +76,10 @@ class PSO:
                 self.GlobalBest_Cost = self.particle[i].Best_cost
                 self.GlobalBest_Pos = self.particle[i].Best_pos
         self.Best_Cost.append(self.GlobalBest_Cost)
-        print('Initialize complete, with best cost =', self.GlobalBest_Cost)
+        print('Initialize complete, with best cost =',
+              self.GlobalBest_Cost, 
+              "\nTemporary best solution:", 
+              self.GlobalBest_Pos)
 
     def iterator(self):
         """
@@ -105,14 +108,22 @@ class PSO:
                 # Recalculate cost
                 #print(self.particle[j].Pos)
                 self.particle[j].Cost = self.objective(self.particle[j].Pos)
+                print("Current cost=", self.particle[j].Cost, "With position:", self.particle[j].Pos)
                 if self.particle[j].Cost < self.particle[j].Best_cost:
                     self.particle[j].Best_cost = self.particle[j].Cost
                     self.particle[j].Best_pos = self.particle[j].Pos
+                    print("Find better personel best, Updating with pos:", self.particle[j].Pos)
                     if self.particle[j].Best_cost < self.GlobalBest_Cost:
                         self.GlobalBest_Cost = self.particle[j].Best_cost
                         self.GlobalBest_Pos = self.particle[j].Best_pos
+                        print("Find better global solution, Updating with pos:", self.particle[j].Pos)
+                    else:
+                        print("Not better than previous global solution, dropping...")
+                else:
+                    print("Not better than previous personal best, dropping...")
             self.Best_Cost.append(self.GlobalBest_Cost)
             self.w = self.w * 0.9
+            print()
             print('iteration', i + 1, ': Cost=', self.GlobalBest_Cost)
             print_params(self.GlobalBest_Pos, self.candidate, net=self.net)
 

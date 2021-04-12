@@ -35,6 +35,15 @@ def to_cat(data, num_classes=None):
         data_class[i, num] = 1
     return data_class
 
+def report(self, data, labels):
+        """
+        """
+        print(
+            classification_report(np.argmax(labels, axis=1),
+                                  np.argmax(self.model.predict(data), axis=1),
+                                  digits=4))
+
+
 
 def translate_params(params, candidate):
     """
@@ -65,35 +74,6 @@ def translate_params(params, candidate):
     return dropout, learning_rate, batch_size, conv
 
 
-def translate_params_svm(params):
-    """
-    Translate the list of parameters to the corresponding parameter(SVM).
-
-    :param params: list, [C, kernel option]
-    :return: c, kernel function
-    """
-    c_candidate = [1e3, 1e2, 1e1, 1, 1e-1, 1e-2, 1e-3]
-    kernel_candidate = ['rbf', 'poly', 'sigmoid']
-    c_intervall = 1/len(c_candidate)
-    k_intervall = 1/len(kernel_candidate)
-    c = None
-    kernel = None
-    for i in range(len(c_candidate)):
-        if (i*c_intervall) <= params[0] <= ((i+1)*c_intervall):
-            c = c_candidate[i]
-        elif params[0] == 1:
-            c = c_candidate[-1]
-    for j in range(len(kernel_candidate)):
-        if (j*k_intervall) <= params[1] <= ((j+1)*k_intervall):
-            kernel = kernel_candidate[j]
-        elif params[1] == 1:
-            kernel = kernel_candidate[-1]
-    assert c in c_candidate
-    assert kernel in kernel_candidate
-
-    return c, kernel
-
-
 def print_params(params, candidate, net=None):
     """
     print the cnn params via translating function
@@ -118,8 +98,8 @@ def print_params(params, candidate, net=None):
     elif net == "SVM":
         C, kernel = translate_params_svm(params)
         print("Best Parameters: ",
-              "\nC=", C,
-              "Kernel function:", kernel)
+              "\nC=", C[1]*params[0],
+              "gamma:", gamma[1]*params[0])
 
 
 def data_FFT(data):

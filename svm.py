@@ -22,8 +22,8 @@ class SVM_Model():
     def get_score(self, params):
         
         assert self.optimization is True
-        c, kernel = translate_params_svm(params)
-        self.model = SVC(C = c,kernel = kernel)
+        c, gamma = translate_params_svm(params)
+        self.model = SVC(C = C[1]*params[0],kernel = 'rbf',gamma=params[1]*gamma[1])
         self.model.fit(self.x_train, self.y_train) # 训练模型
         #result = self.model.predict(self.x_test) # 对测试集进行分类预测
         Error = 1- self.model.score(self.x_test, self.y_test) # 计算测试分类正确率
@@ -33,23 +33,11 @@ class SVM_Model():
     def train_svm(self, params):
         
         assert self.optimization is False
-        self.model = SVC(C=params[0], kernel=params[1])
+        self.model = SVC(C=params[0],kernel = ‘rbf’,gamma=params[1])
         self.model.fit(self.x_train, self.y_train) # 训练模型
         #result = self.model.predict(self.x_test) # 对测试集进行分类预测
         acc = self.model.score(self.x_test, self.y_test)
         print("Training complete, with accuracy:", acc)
 
     
-"""举例测试效果
-params[0]可取 [1e3,1e2,1e1,1,1e-1,1e-2,1e-3,1e-4,1e-5]
-C = params[0] 惩罚系数：如果不设置，默认为1
-params[1]可取 ['rbf','linear','poly','sigmoid']
-kernel = params[1] 核函数：默认为 'rbf'
-放入的数据集应为原始数据，未经归一，降噪，one-hot等转换
-trX.shape = (11821, 576),trY.shape = (11821, 1)
-若 x_test,y_test 未设定的话，截取一部分训练集为测试集
-"""
 
-# params = [1.0, 'rbf']
-# SVM = SVM_Model(x_train = trX, y_train = trY, x_test = None, y_test = None)
-$ SVM.get_score(params)
