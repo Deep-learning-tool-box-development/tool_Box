@@ -20,7 +20,7 @@ class SVM_Model():
     def get_score(self, params):
         
         assert self.optimization is True
-        #1111
+
         self.model = SVC(C = C[1]*params[0],kernel = 'rbf',gamma=params[1]*gamma[1])
         self.model.fit(self.x_train, self.y_train) # 训练模型
         #result = self.model.predict(self.x_test) # 对测试集进行分类预测
