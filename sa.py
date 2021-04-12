@@ -27,6 +27,10 @@ class SA:
         self.dim = np.zeros(len(var_size))
         self.net = net
         self.candidate = candidate
+        self.temp = []
+        self.states = []
+        self.costs = []
+        self.current_temp = self.initial_temp  # initialisation of temp
 
     def run(self):
         """
@@ -35,7 +39,6 @@ class SA:
         """ Optimize object network with the simulated annealing algorithm."""
 
         state = self._random_start()  # start from a random state, multiple dimension
-        self.current_temp = self.initial_temp
         self.temp = [self.current_temp]
         cost = self.objective(state)
         self.states, self.costs = [state], [cost]
