@@ -12,8 +12,8 @@ from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense,BatchNormalization
 from tensorflow.keras import regularizers
 from tensorflow.keras.callbacks import ModelCheckpoint,TensorBoard,EarlyStopping
-
 from utils import plot_learning_curve
+
 
 class DBN:
     def __init__(self,
