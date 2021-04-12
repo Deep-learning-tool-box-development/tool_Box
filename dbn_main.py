@@ -19,7 +19,7 @@ def run_dbn_pso(path_to_data, var_size):
               outdir=None,
               logdir=None,
               optimization=True)
-    pso = PSO(dbn.dbn_get_score, 5, 10, var_size, net = "DBN")
+    pso = PSO(dbn.dbn_get_score, 4, 10, var_size, net = "DBN")
     pso.run()
 
 
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     """
     # Main function
     option = 'PSO'
-    path = './dataset/'
+    path = './Dataset/'
     
     var_size = [[0.5, 0.8], [1e-4, 1e-3], [1e-4, 1e-3]]  # var_size = [Dropout,LearningRate_RBM,LearningRate_nn] 
     if option == 'PSO':
