@@ -135,6 +135,7 @@ class PSO:
         plt.plot(self.Best_Cost)
         plt.ylabel("Objective costs")
         plt.xlabel("iteration number")
+        plt.show()
 
     def run(self):
         """
