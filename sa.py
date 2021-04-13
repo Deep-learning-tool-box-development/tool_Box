@@ -22,8 +22,8 @@ class SA:
         self.interval = (0, 1)  # set a range (0,1)
         self.objective = objective  # Objective network to be optimize
         self.initial_temp = initial_temp  # 200
-        self.final_temp = final_temp  # .1
-        self.alpha = alpha  # 0.92 衰减因子
+        self.final_temp = final_temp  # 10
+        self.alpha = alpha  # 0.9 衰减因子
         self.var_size = var_size  # [[],[],[]]
         self.dim = np.zeros(len(var_size))
         self.net = net
