@@ -47,7 +47,7 @@ class KNN():
                         - "distance" weights by the inverse of distance,
                         - [callable] : a user-defined function which accepts an array of distances;
 
-        :return: result
+        :outcome: plotted out result
         """
         # get params
         k_range, weight_choices = params
