@@ -30,7 +30,7 @@ scipy 1.6.2
 
 user only need to change option between "PSO" and "SA" under cnn_main or dbn_main or svm_main. 
 
-# 测试结果
+# Test outcome
 
 **cnn_pso:**
 
@@ -42,7 +42,7 @@ user only need to change option between "PSO" and "SA" under cnn_main or dbn_mai
 
 
 
-# 参考资料
+# Reference material
 
 [Tensorflow基本函数](http://www.cnblogs.com/wuzhitj/p/6431381.html), 
 [RBM原理](https://blog.csdn.net/itplus/article/details/19168937), 
