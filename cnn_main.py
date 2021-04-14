@@ -48,7 +48,7 @@ if __name__ == '__main__':
     option = 'PSO'
     path = './Dataset/'
     # below should get from config
-    do = [0.3, 0.8]  # dropping out
+    do = [0.3, 0.8]  # dropout
     lr = [0.0001, 0.02]  # learning rate
     # 6 candidate of batch size
     conv_candidate = [4, 6, 8]  # convolution
