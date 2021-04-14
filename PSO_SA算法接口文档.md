@@ -31,7 +31,7 @@ def run_cnn_pso(path_to_data, var_size, discrete_candidate):
     Main function for the CNN and PSO.
     :param path_to_data: string, Folder of the data files
     :param var_size: list, upper and under boundaries of all variables
-    :param discrete_candidate: list, list of discrete params, convolution layer and batch 		size
+    :param discrete_candidate: list, list of discrete params, convolution layer and batch size
     :return: None
     """
     # create the CNN model
@@ -176,7 +176,7 @@ to switch between "PSO" and "SA", user only need to change `option`
 
 variables to be optimized are C, gamma:
 
--  C, in range [15, 100]
+- C, in range [15, 100]
 - gamma, in range [0.001, 0.01]
 
 ~~~python
