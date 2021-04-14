@@ -34,11 +34,11 @@ user only need to change option between "PSO" and "SA" under cnn_main or dbn_mai
 
 **cnn_pso:**
 
-
+![cnn_pso](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_pso.png)
 
 **cnn_sa:**
 
-
+![cnn_sa](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_sa.png)
 
 **dbn_pso:**
 
@@ -46,19 +46,21 @@ user only need to change option between "PSO" and "SA" under cnn_main or dbn_mai
 
 **dbn_sa:**
 
-
+![dbn_sa](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/DBN%2BSA.png)
 
 **svm_pso:**
 
-
+![svm_pso](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/SVM%2Bpso.png)
 
 **svm_sa:**
 
-
+![svm_sa](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/SVM%2BSA.png)
 
 **knn:**
 
+![knn_fft_distance](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/knn_fft_distance.png)
 
+![knn_fft_uniform](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/knn_fft_uniform.png)
 
 # Reference material
 
