@@ -40,7 +40,7 @@ user only need to change option between "PSO" and "SA" under cnn_main or dbn_mai
 **cnn_sa1:**
 
 
-<img src="https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_sa.png" style="zoom:20%;"  alt="效果图" align=center />
+<img src="https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_sa.png" width = "300"  alt="效果图" align=center />
 
 **cnn_sa:**
 
