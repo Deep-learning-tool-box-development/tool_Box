@@ -31,10 +31,11 @@ user only need to change option between "PSO" and "SA" under cnn_main or dbn_mai
 
 # Test outcome
 
-**cnn_pso:**
+**cnn_pso2:**
 <img src="http://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_pso.png" alt="cnn_pso1"  width="50%" height="50%" align="bottom" />
+**cnn_pso1:**
 <img src="http://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_pso.png" alt="cnn_pso2" width="50" align="bottom" />
-
+**cnn_pso:**
 ![cnn_pso-w50](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_pso.png)
 
 **cnn_sa:**
