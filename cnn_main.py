@@ -45,7 +45,7 @@ if __name__ == '__main__':
     Main function to call the selected model and optimizer
     """
     # Main function
-    option = 'PSO'
+    option = 'PSO' # choose between "PSO" and "SA"
     path = './Dataset/'
     # below should get from config
     do = [0.3, 0.8]  # dropout
