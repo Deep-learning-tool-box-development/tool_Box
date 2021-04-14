@@ -34,11 +34,29 @@ user only need to change option between "PSO" and "SA" under cnn_main or dbn_mai
 
 **cnn_pso:**
 
-<img src="C:\Users\zhudifan\AppData\Roaming\Typora\typora-user-images\image-20210414190451173.png" alt="image-20210414190451173" style="zoom: 67%;" />
+
 
 **cnn_sa:**
 
-<img src="C:\Users\zhudifan\AppData\Roaming\Typora\typora-user-images\image-20210414190551716.png" alt="image-20210414190551716" style="zoom: 50%;" />
+
+
+**dbn_pso:**
+
+
+
+**dbn_sa:**
+
+
+
+**svm_pso:**
+
+
+
+**svm_sa:**
+
+
+
+**knn:**
 
 
 
