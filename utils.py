@@ -39,10 +39,10 @@ def to_cat(data, num_classes=None):
 
 def report(self, data, labels):
     """
-        print out test report
-        :param data: test data
-        :param labels: test label
-        """
+    print out test report
+    :param data: test data
+    :param labels: test label
+    """
     print(
         classification_report(np.argmax(labels, axis=1),
                               np.argmax(self.model.predict(data), axis=1),
@@ -51,9 +51,9 @@ def report(self, data, labels):
 
 def translate_params(params, candidate):
     """
-    Translate the list of parameters to the corresponding parameter(CNN).
+    Translate the list of parameters to the corresponding parameter.
 
-    :param candidate:
+    :param candidate: list, discrete choices of one parameter in network
     :param params: list, [dropout, learning_rate, batch_size, number of convolution]
     :return: value of dropout(float), learning_rate(float) and batch_size(int)
     """
@@ -80,11 +80,11 @@ def translate_params(params, candidate):
 
 def print_params(params, candidate, net=None):
     """
-    print the cnn params via translating function
+    print the network's params via translating function
 
-    :param candidate:
-    :param net:
-    :param params: list of cnn parameters
+    :param candidate: list, discrete choices of one parameter in network
+    :param net: String, choose between "CNN", "DBN", "SVM"
+    :param params: list of network's parameters
     :return: None
     """
     if net == "CNN":
