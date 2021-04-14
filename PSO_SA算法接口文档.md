@@ -16,7 +16,7 @@ to switch between "PSO" and "SA", user only need to change `option`
 
 - if option == "SA" -- run_cnn_sa: input are path to data, upper and under boundaries of all variables, and discrete candidates
 
-  he parameters of pso are set as: cnn.cnn_get_score, 200, 10, 0.9, var_size, candidate=discrete_candidate, net="CNN"
+  the parameters of pso are set as: cnn.cnn_get_score, 200, 10, 0.9, var_size, candidate=discrete_candidate, net="CNN"
 
 variables to be optimized are dropout, learning rate, convolution and batch size:
 
@@ -97,7 +97,7 @@ to switch between "PSO" and "SA", user only need to change `option`
 
 - if option == "SA" -- run_dbn_sa: input are path to data, upper and under boundaries of all variables
 
-  he parameters of pso are set as: dbn.dbn_get_score, 200, 10, 0.9, var_size, net="DBN"
+  the parameters of pso are set as: dbn.dbn_get_score, 200, 10, 0.9, var_size, net="DBN"
 
 variables to be optimized are dropout, learning rate_RBM, learning rate_nn:
 
@@ -172,7 +172,7 @@ to switch between "PSO" and "SA", user only need to change `option`
 
 - if option == "SA" -- run_svm_sa: input are path to data, upper and under boundaries of all variables
 
-  he parameters of pso are set as: svm.get_score, 200, 10, 0.9, var_size, net="SVM"
+  the parameters of pso are set as: svm.get_score, 200, 10, 0.9, var_size, net="SVM"
 
 variables to be optimized are C, gamma:
 
