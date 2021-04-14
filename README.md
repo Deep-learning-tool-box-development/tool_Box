@@ -1,11 +1,11 @@
 # Including algorithms
-</br>
 *Convolution Neural Network (CNN)*</br>
 *Deep Belief Network (DBN)*  </br>
 *Particle swarm optimization (PSO)*  </br>
 *Simulated Annealing(SA)*  </br>
 *K-nearest neighbors  (KNN)*  </br>
 *Support Vector Machine (SVM)*  </br>
+
 # Install packages
 ```python
 pip install tensorflow (version: 2.X)
