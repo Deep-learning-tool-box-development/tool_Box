@@ -45,7 +45,7 @@ user only need to change option between "PSO" and "SA" under cnn_main or dbn_mai
 
 **dbn_pso:**
 
-![dbn_pso-50](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/DBN%2BSA.png)
+![dbn_pso-50](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/DBN%2Bpso.png)
 
 **dbn_sa:**
 
