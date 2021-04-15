@@ -25,6 +25,9 @@ tensorflow 2.4.1
 tensorflow.keras 2.4.0
 scipy 1.6.2
 ```
+
+
+
 # User guide
 
 user only need to change option between "PSO" and "SA" under cnn_main or dbn_main or svm_main. 
@@ -34,17 +37,11 @@ user only need to change option between "PSO" and "SA" under cnn_main or dbn_mai
 
 **cnn_pso:**
 
-![cnn_pso-w50](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_pso.png)
-
-
-**cnn_sa1:**
-
-
-<img src="https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_sa.png" style="zoom:20%;"  alt="效果图" align=center />
+<img src="https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_pso.png" width = "500"  alt="效果图" align=center />
 
 **cnn_sa:**
 
-![cnn_sa-w50](https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_sa.png)
+<img src="https://github.com/Deep-learning-tool-box-development/tool_Box/blob/main/image/cnn_sa.png" width = "500"  alt="效果图" align=center />
 
 **dbn_pso:**
 
