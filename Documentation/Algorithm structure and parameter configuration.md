@@ -200,11 +200,11 @@ class CNN:
 DBN as DL network, including 7 function inside the class
 
 	1. init: Pass in the data set and set some parameters
- 	2. pretrain: Pre-training, construct n-layer RBM network
- 	3. finetune: Use the BP algorithm to fine-tune the trained rbm network, modify the weights and bias values
- 	4. save_model
- 	5. load_rbm
- 	6. dbn_get_score: Used to optimize the algorithm. Use the parameters obtained by the optimization algorithm for training
+	2. pretrain: Pre-training, construct n-layer RBM network
+	3. finetune: Use the BP algorithm to fine-tune the trained rbm network, modify the weights and bias values
+	4. save_model
+	5. load_rbm
+	6. dbn_get_score: Used to optimize the algorithm. Use the parameters obtained by the optimization algorithm for training
 
 ```python
 class DBN:
@@ -270,6 +270,8 @@ class DBN:
 SVM network includes 3 function
 
  	1. init: Pass in the data set and set some parameters
+ 	2. get_score: use optimization algorithms to train the best parameters
+ 	3. train_svm: manually set up parameters to test
 
 ~~~python
 class SVM_Model():
