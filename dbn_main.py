@@ -38,7 +38,8 @@ def run_dbn_sa(path_to_data, var_size):
               outdir=None,
               logdir=None,
               optimization=True)
-    sa = SA(dbn.dbn_get_score, 200, 10, 0.9, var_size, net="DBN")  # initial temp=200, final temp=10, alpha=0.9
+    sa = SA(dbn.dbn_get_score, 200, 10, 0.9, 10, var_size, net="DBN")
+    # objective, initial_temp, final_temp, alpha, max_iter, var_size, candidate, net
     sa.run()
 
 

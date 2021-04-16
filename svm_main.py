@@ -31,7 +31,8 @@ def run_svm_sa(path_to_data, var_size):
     svm = SVM_Model(x_train=x_train, y_train=y_train,
                     x_test=x_test, y_test=y_test,
                     optimization=True)
-    sa = SA(svm.get_score, 200, 10, 0.9, var_size, net="SVM")
+    sa = SA(svm.get_score, 200, 10, 0.9, 10,  var_size, net="SVM")
+    # objective, initial_temp, final_temp, alpha, max_iter, var_size, net
     sa.run()
 
 

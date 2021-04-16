@@ -10,20 +10,21 @@ from utils import print_params
 
 class SA:
 
-    def __init__(self, objective, initial_temp, final_temp, alpha, var_size, candidate=None, net="DBN"):
+    def __init__(self, objective, initial_temp, final_temp, alpha, max_iter, var_size, candidate=None, net="None"):
         """
         :param objective: cost function as an objective
         :param initial_temp: double, manually set initial_temp, e.g. 200
         :param final_temp: double, stop_temp, e.g. 0.1
-        :param alpha: double, temperature changing step, [0.900, 0.999]
+        :param alpha: double, temperature changing step, normal range[0.900, 0.999], e.g.0.9
+        :param max_iter: int, maximal iteration number e.g. 30
         :param var_size: list, upper and lower bounds of each parameter
         :param net: choose between "DBN", "CNN", "SVM"
         """
-        # self.interval = (0, 1)  # set a range (0,1)
         self.objective = objective  # Objective network to be optimize
         self.initial_temp = initial_temp  # 200
         self.final_temp = final_temp  # 10
         self.alpha = alpha  # 0.9 衰减因子
+        self.max_iter = max_iter  # maximal iteration number
         self.var_size = var_size  # [[],[],[]]
         self.dim = np.zeros(len(var_size))
         self.net = net
@@ -80,6 +81,9 @@ class SA:
             num_itr += 1
             print_params(state, self.candidate, net=self.net)
             print(len(self.temp), len(self.costs))
+            if num_itr >= self.max_iter:
+                print("reach the maximal iteration number")
+                break
         self.plot_curve()
 
     def plot_curve(self):

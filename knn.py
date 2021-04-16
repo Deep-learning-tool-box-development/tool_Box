@@ -16,8 +16,8 @@ def run_knn(path_to_data):
     x_train = data_FFT(x_train)  # fft on original dataset
     x_test = data_FFT(x_test)  # fft on original dataset
     knn = KNN(x_train, y_train, x_test, y_test)
-    k_range = range(1, 25)
-    weight_choices = ["uniform", "distance"]
+    k_range = range(1, 25)  # user input (under, upper bounds)
+    weight_choices = ["uniform", "distance"]  # user input, string in list
     params = [k_range, weight_choices]  # editable params
     knn.predict(params)
 
@@ -85,12 +85,12 @@ class KNN():
             plt.xlabel("Value of K for KNN")
             plt.ylabel("Error")
             plt.show()
+        return self.result_error, self.result_k
 
 
 if __name__ == "__main__":
     """
     Main function to call the knn
     """
-    # path = "PATH TO DATASET"
     path = './dataset/'
     run_knn(path)
