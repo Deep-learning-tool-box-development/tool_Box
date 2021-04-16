@@ -19,7 +19,7 @@ class SA:
         :param var_size: list, upper and lower bounds of each parameter
         :param net: choose between "DBN", "CNN", "SVM"
         """
-        self.interval = (0, 1)  # set a range (0,1)
+        # self.interval = (0, 1)  # set a range (0,1)
         self.objective = objective  # Objective network to be optimize
         self.initial_temp = initial_temp  # 200
         self.final_temp = final_temp  # 10

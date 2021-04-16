@@ -13,8 +13,8 @@ def run_knn(path_to_data):
     :return: None
     """
     x_train, x_test, y_train, y_test = import_data(path_to_data, model='KNN')
-    x_train = data_FFT(x_train)
-    x_test = data_FFT(x_test)
+    x_train = data_FFT(x_train)  # fft on original dataset
+    x_test = data_FFT(x_test)  # fft on original dataset
     knn = KNN(x_train, y_train, x_test, y_test)
     k_range = range(1, 25)
     weight_choices = ["uniform", "distance"]
@@ -60,18 +60,22 @@ class KNN():
         # Fitting K-NN to the Training set
         for weights in weight_choices:
             k_error = []
+            k_err_train = []
             for k in k_range:
                 knn = KNeighborsClassifier(n_neighbors=k, weights=weights, metric='minkowski', p=2)
                 # params[2] and params[3] Default is "minkowski" with p=2, equivalent to the standard Euclidean metric
                 # e.g. [5, "uniform",'minkowski', 2]
 
                 knn.fit(X_train, self.y_train)  # train on train_file
+                err = 1 - knn.score(X_train, self.y_train)
                 Error = 1 - knn.score(X_test, self.y_test)  # error on test_file
 
                 print("k=", k)
                 print("weights=", weights)
                 print("Error", Error)
                 k_error.append(Error)
+                k_err_train.append(err)
+
             # plot Error_list on variable k value
             self.result_error = min(k_error)
             self.result_k = k_error.index(self.result_error)+1
