@@ -2,7 +2,7 @@ from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 
 
-class SVM_Model():
+class SVM_Model:
     def __init__(self, x_train, y_train, x_test, y_test, optimization=True):
 
         self.x_train = x_train
@@ -21,7 +21,7 @@ class SVM_Model():
 
         assert self.optimization is True
 
-        self.model = SVC(C = params[0], gamma=params[1])
+        self.model = SVC(C=params[0], gamma=params[1])
         self.model.fit(self.x_train, self.y_train)  # 训练模型
         # result = self.model.predict(self.x_test) # 对测试集进行分类预测
         Error = 1 - self.model.score(self.x_test, self.y_test)  # 计算测试分类正确率
