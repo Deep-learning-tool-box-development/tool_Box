@@ -7,6 +7,7 @@ from sa import SA
 def run_dbn_pso(path_to_data, var_size):
     """
     Main function for the DBN and PSO.
+
     :param path_to_data: string, Folder of the data files
     :param var_size: list, upper and under boundaries of all variables
     :return: None
@@ -26,6 +27,7 @@ def run_dbn_pso(path_to_data, var_size):
 def run_dbn_sa(path_to_data, var_size):
     """
     Main function for the DBN and SA.
+
     :param path_to_data: string, Folder of the data files
     :param var_size: list, upper and under boundaries of all variables
     :return: None

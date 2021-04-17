@@ -36,9 +36,10 @@ class SA:
 
     def run(self):
         """
+        Optimize object network with the simulated annealing algorithm.
+
         :outcome: cost of all iteration and objective functions' optimized parameters
         """
-        """ Optimize object network with the simulated annealing algorithm."""
 
         state = self._random_start()  # start from a random state, multiple dimension
         self.temp = [self.current_temp]
@@ -89,6 +90,7 @@ class SA:
     def plot_curve(self):
         """
         Plot optimizer curve with iteration
+
         :return: None
         """
         plt.plot(self.costs)
@@ -97,7 +99,11 @@ class SA:
         plt.show()
 
     def _random_start(self):
-        """ Random start point in the given interval """
+        """
+        Random start point in the given interval
+
+        :return: random state value
+        """
         print("___START____")
         rd_state = np.zeros(len(self.var_size))
         for i in range(len(np.zeros(len(self.var_size)))):
@@ -107,7 +113,11 @@ class SA:
         return rd_state
 
     def _random_neighbour(self, state_old):
-        """Find neighbour of current state"""
+        """
+        Find neighbour of current state
+
+        :param state_old: list, old state
+        """
         print("___NEIGHBOUR____")
 
         neighbour = np.zeros(len(self.var_size))

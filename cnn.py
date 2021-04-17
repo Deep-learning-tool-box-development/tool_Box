@@ -111,7 +111,6 @@ class CNN:
         if self.optimization is False:
             verbose = 1
             checkpointer = keras.callbacks.ModelCheckpoint(filepath=self.outdir + "cnn_weights.hdf5",
-                                                           # 给定checkpoint保存的文件名
                                                            monitor='val_accuracy',
                                                            mode='max',
                                                            verbose=verbose,
@@ -136,7 +135,7 @@ class CNN:
         """
         Function to get the score of each model.
 
-        :param params: list, [dropout, learning_rate, batch_size]
+        :param params: list, [dropout, learning_rate, batch_size, conv numbers]
         :return: float, 1- mean value from last 3 validation accuracy
         """
         history = self.train(params)
@@ -145,12 +144,19 @@ class CNN:
         return 1 - score
 
     def test(self):
+        """
+        Evaluate the model
+
+        :return: None
+        """
         test_loss, test_acc = self.model.evaluate(self.x_test, self.y_test)
         print("Test accuracy:", test_acc)
 
     def save_model(self):
         """
         Save cnn model public Function
+
+        :return: None
         """
         self.model.save(self.outdir + "cnn_model")
 

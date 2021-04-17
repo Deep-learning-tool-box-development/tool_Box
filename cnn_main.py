@@ -8,6 +8,7 @@ from sa import SA
 def run_cnn_pso(path_to_data, var_size, discrete_candidate):
     """
     Main function for the CNN and PSO.
+
     :param path_to_data: string, Folder of the data files
     :param var_size: list, upper and under boundaries of all variables
     :param discrete_candidate: list, list of discrete params, convolution layer and batch size
@@ -26,6 +27,7 @@ def run_cnn_pso(path_to_data, var_size, discrete_candidate):
 def run_cnn_sa(path_to_data, var_size, discrete_candidate):
     """
     Main function for the CNN and SA.
+
     :param path_to_data: string, Folder of the data files
     :param var_size: list, upper and under boundaries of all variables
     :param discrete_candidate: list, list of discrete params, convolution layer and batch size

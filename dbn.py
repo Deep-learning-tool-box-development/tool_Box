@@ -21,7 +21,7 @@ class DBN:
                  logdir=None,
                  optimization=True):
         """
-        定义 DBN类
+
         :param train_data,targets:训练集数据
         :param rbm_layers:list 指定rbm层数及每层节点数目，[400,200,50]
         :param batch_size: int
@@ -59,7 +59,8 @@ class DBN:
 
     def pretrain(self, params, verbose):  # 预训练,构造n层RBM网络
         """
-        预训练,构造n层RBM网络
+        Pretraining, build n-layers RBM network
+
         :param params:params[1] rbm 学习率
         :param verbose: 日志显示
         """
@@ -96,9 +97,11 @@ class DBN:
 
     def finetune(self, params, verbose):  # 微调
         """
-        对得到的rbm网络进行微调，修正权值，偏置值
+        Finetuning RBM network
+
         :param params: params[0]：Dropout；params[2]：nn学习率
-        :param verbose: 日志显示
+        :param verbose: bool, show training progress
+        :return: None
         """
         model = Sequential()
         for i in range(len(self.hidden_sizes)):
@@ -179,9 +182,10 @@ class DBN:
 
     def dbn_get_score(self, params):
         """
-        导入超参数，运行模型
+        Get DBN error rate
+
         :param params: list [Dropout，leringrate_rbm,lerningrata_nn]
-        :return: 验证集错误率
+        :return: float, error rate
         """
         self.pretrain(params, verbose=0)
         self.finetune(params, verbose=0)

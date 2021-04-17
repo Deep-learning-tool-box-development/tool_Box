@@ -40,6 +40,7 @@ def to_cat(data, num_classes=None):
 def report(self, data, labels):
     """
     print out test report
+
     :param data: test data
     :param labels: test label
     """
@@ -108,6 +109,7 @@ def print_params(params, candidate, net=None):
 def data_FFT(data):
     """
     use fourier transformation to change dataset from time domain into frequency domain
+
     :param data: input original data
     :return: transformed data
     """

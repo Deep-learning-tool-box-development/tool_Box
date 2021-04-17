@@ -10,6 +10,7 @@ def run_knn(path_to_data):
 
     """
     Main function KNN.
+
     :param path_to_data: string, Folder of the data files
     :return: None
     """
@@ -57,11 +58,13 @@ class KNN:
 
     def predict(self, params):
         """
+
         :param params: params[0] is number of neighbors;
                     params[1] is weight used in prediction,
                         - "uniform" all points have the same weight,
                         - "distance" weights by the inverse of distance,
                         - [callable] : a user-defined function which accepts an array of distances;
+        :return: Error, k value
         """
         # get params
         k_range, weight_choices = params
@@ -94,7 +97,11 @@ class KNN:
         return self.result_error, self.result_k
 
     def plot_curve(self):
-        """plot Error_list on variable k value"""
+        """
+        plot Error_list on variable k value
+
+        :return: None
+        """
         plt.plot(self.k_range, self.k_error)
         plt.title("Error under different choice of K")
         plt.xlabel("Value of K for KNN")
@@ -102,9 +109,10 @@ class KNN:
         plt.show()
 
     def save_result(self, path):
-        """save result of knn into path"""
         """
-        :param path: path of dataset
+        save result of knn into path
+
+        :param path: string, path of dataset
         """
         pickle.dump(self.knn, open(self.filename, 'wb'))
 

@@ -31,6 +31,8 @@ class PSO:
         :param num_itr: integer, number of iterations
         :param var_size: list, upper and lower bounds of each parameter,
                         as in [[x1_min,x1_max], [x2_min,x2_max],..., [xn_min,xn_max]]
+        :param candidate: list, candidates of the discrete parameters
+        :param net: string, name of the optimized network
         """
         self.part_num = part_num  # Number of the particles
         self.dim = len(var_size)  # Dimension of the particle
@@ -55,6 +57,7 @@ class PSO:
     def init_population(self):
         """
         Initialize all the particles and find the temporary best parameter.
+
         :return: None
         """
         print('Initializing...')
@@ -84,6 +87,7 @@ class PSO:
     def iterator(self):
         """
         Run the iterations to find the best parameters.
+
         :return: None
         """
         print('Iterator running...')
@@ -130,6 +134,7 @@ class PSO:
     def plot_curve(self):
         """
         Plot optimizer curve
+
         :return: None
         """
         plt.plot(self.Best_Cost)
@@ -140,6 +145,7 @@ class PSO:
     def run(self):
         """
         General call for the whole optimization.
+
         :return: None
         """
         print('PSO start running...')
