@@ -32,7 +32,7 @@ class SVM_Model:
         :return: float, model error
         """
         assert self.optimization is True
-
+        # kernel = {‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’}, default=’rbf’
         self.model = SVC(C=params[0], gamma=params[1])
         self.model.fit(self.x_train, self.y_train)  # 训练模型
         # result = self.model.predict(self.x_test) # 对测试集进行分类预测
