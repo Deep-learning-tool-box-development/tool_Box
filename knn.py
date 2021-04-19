@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from dataset import import_data
 from utils import data_FFT
 import pickle
+import os
 
 
 def run_knn(path_to_data):
@@ -28,7 +29,7 @@ def run_knn(path_to_data):
     if plot:
         knn.plot_curve()
     if save:
-        knn.save_result(path_to_data)
+        knn.save_result()
 
 
 class KNN:
@@ -50,11 +51,15 @@ class KNN:
         self.result_k = 0  # initialisation
         self.k_error = []
         self.k_err_train = []
-        self.outdir = outdir
         self.k_range = 1
         self.path = path
         self.knn = None
         self.filename = 'knn_model.sav'
+        if os.path.exists(outdir):
+            self.outdir = outdir
+        else:
+            os.makedirs(outdir)
+            self.outdir = outdir
 
     def predict(self, params):
         """
@@ -108,17 +113,24 @@ class KNN:
         plt.ylabel("Error")
         plt.show()
 
-    def save_result(self, path):
+    def save_result(self):
         """
         save result of knn into path
-
         :param path: string, path of dataset
         """
-        pickle.dump(self.knn, open(self.filename, 'wb'))
+        pickle.dump(self.knn, open(self.outdir+self.filename, 'wb'))
 
     def load_model(self):
-        loaded_model = pickle.load(open(self.filename, 'rb'))
-        result = loaded_model.score(self.x_test, self.y_test)
+        """
+        :return:
+        """
+        try:
+            loaded_model = pickle.load(open(self.filename, 'rb'))
+            result = loaded_model.score(self.x_test, self.y_test)
+            error = 1 - result
+            return error
+        except:
+            print("No such file or directory.")
 
 
 if __name__ == "__main__":

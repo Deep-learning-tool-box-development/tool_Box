@@ -38,7 +38,7 @@ def run_cnn_sa(path_to_data, var_size, discrete_candidate):
               discrete_candidate=discrete_candidate,
               optimization=True,
               epoch=6)
-    sa = SA(cnn.cnn_get_score, 200, 10, 0.9, 10, var_size, candidate=discrete_candidate, net="CNN")
+    sa = SA(cnn.cnn_get_score, 500, 1, 0.9, 30, var_size, candidate=discrete_candidate, net="CNN")
     # objective, initial_temp, final_temp, alpha, max_iter, var_size, candidate, net
     sa.run()
 
