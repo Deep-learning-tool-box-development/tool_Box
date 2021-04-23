@@ -23,13 +23,15 @@ def run_knn(path_to_data):
     weight_choices = ["uniform", "distance"]  # user input, string in list
     params = [k_range, weight_choices]  # editable params
     knn.predict(params)  # user can decide to plot/save result or not
-    plot = True    # save: bool, choose to save or not
-    save = True    # plot: bool, choose to plot or not
-    load = True    # load: bool, choose to load or not
+    plot = False    # save: bool, choose to save or not
+    save = False    # plot: bool, choose to plot or not
+    load = False    # load: bool, choose to load or not
     if plot:
         knn.plot_curve()
     if save:
         knn.save_result()
+    if load:
+        knn.load_model()
 
 
 class KNN:
