@@ -20,7 +20,7 @@ def run_cnn_pso(path_to_data, var_size, discrete_candidate):
               discrete_candidate=discrete_candidate,
               optimization=True,
               epoch=6)
-    pso = PSO(cnn.cnn_get_score, 5, 5, var_size, candidate=discrete_candidate, net="CNN")
+    pso = PSO(cnn.cnn_get_score, 4, 15, var_size, candidate=discrete_candidate, net="CNN")
     pso.run()
 
 
